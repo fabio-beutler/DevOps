@@ -63,7 +63,7 @@ storage:
           type=ethernet
           interface-name=eno4
           [ipv4]
-          address1=10.0.1.10/24
+          address1=10.0.1.11/24,10.0.1.1
           may-fail=true
           method=manual
     # YUM repository for kubeadm, kubelet and kubectl

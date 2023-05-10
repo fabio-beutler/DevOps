@@ -1,0 +1,23 @@
+DEFAULT server1
+TIMEOUT 20
+PROMPT 0
+ONTIMEOUT local
+
+MENU TITLE PXE Menu
+
+LABEL server1
+    MENU LABEL server1
+    KERNEL fedora-coreos-38.20230414.3.0-live-kernel-x86_64
+    APPEND initrd=fedora-coreos-38.20230414.3.0-live-initramfs.x86_64.img,fedora-coreos-38.20230414.3.0-live-rootfs.x86_64.img coreos.inst.install_dev=/dev/sda coreos.inst.ignition_url=https://raw.githubusercontent.com/fabio-beutler/DevOps/main/butane/1/config.ign
+
+LABEL server2
+    MENU LABEL server2
+    KERNEL fedora-coreos-38.20230414.3.0-live-kernel-x86_64
+    APPEND initrd=fedora-coreos-38.20230414.3.0-live-initramfs.x86_64.img,fedora-coreos-38.20230414.3.0-live-rootfs.x86_64.img coreos.inst.install_dev=/dev/sda coreos.inst.ignition_url=https://raw.githubusercontent.com/fabio-beutler/DevOps/main/butane/2/config.ign
+
+LABEL server3
+    MENU LABEL server3
+    KERNEL fedora-coreos-38.20230414.3.0-live-kernel-x86_64
+    APPEND initrd=fedora-coreos-38.20230414.3.0-live-initramfs.x86_64.img,fedora-coreos-38.20230414.3.0-live-rootfs.x86_64.img coreos.inst.install_dev=/dev/sda coreos.inst.ignition_url=https://raw.githubusercontent.com/fabio-beutler/DevOps/main/butane/3/config.ign
+
+IPAPPEND 2
