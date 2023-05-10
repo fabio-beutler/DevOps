@@ -1,0 +1,96 @@
+variant: fcos
+version: 1.4.0
+passwd:
+  users:
+    - name: core
+      ssh_authorized_keys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDCFZwMLNX9mr+qm7zkAJPppAjEAQ0kIiwzF/vJFjh8bwkFaqyTvFwaqJPnKVwE+4ldIkQfYgc9xZ2sXBRrAt84auyw+NsgP6ik6Cihjsrblf6ZD3GRTrv2rmunimavfOrZD/lAQ8Bbvj8ZAvOG6tWy0Fls7FnvErWiMPhxG58C5YmiH3ujkxcFolBC3oIMjktSIodZzsTTUf0xae13ilqzxyr7aG100Xy/AO6bhS7ndkQBE18huhTJbmls2DsjusdgJLZQoYjzEF8ZBAGYutBR5KznunEN3EKtGg5lB+jbx6bOt76ljMD6XahpKpJPmx3Zkx1Mipq2W2/peNtcoHuzCLKIYjavTWg5is+r/PyBGoysaZgZ4suiwJ8LIOenVmn5HSVxRuMum/PzC1F1tTRJdRtQ9WNVfaL5XGdFggQrim+2wf/rK+Xzz/8Ul5eW54pTX1myPi4CpxoEIDinI/gv0pqMhUhGD9nWuIGqITMvk7NXIwFaacTjHDCS7cy6MrE= fabio@DevDesktop
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCm1ujNqvFxUPbaW5VK2X3Ob3pADRj3CNaWkFEVHjqTCsOfXF3KfeIO/Hqj97A3uOSlQ6fKiSSSiFcnLYk/xXBTallw6Aecl+aWqPGew/jLptZIOZHFGUN+ZUa8zyf8upMTM2OPNnorzr65IOxZ3FT39yaxvjn4t28YB9MvNx2fPvwGR6Y2dSLkYj/JM7GixQRpTeZpmNGPmFPGlhDWtgKiOpIgkaaaPq/MfDrx2K6JjrJF6T8HzAfm07lItIg47/eNHekrtqh9bVjWJKHTE0iPr9Yi8nCm6xsJLerVbMAZb3RSOKNnpeHYKLgTgF6LOOzyfNuAUDuj5AsSuahiUq3ZpYCJ0I4DAXFoX0My6X9s4jPbQ4MrnTDq++Qqc2PqrrFNSSMXVauYjPW6XlosxMaFEspWJmWyO0d2UWkPqNGft9zP4/L0dwG5oOuCN8Eh7hOrrsxhg2jEN8G1nSDgi/6/SIhfj3eLirnF2FgACqvxbgj+uvs4/j8+0YEDTcfd3b6QgBJBYIUQPxQYGMy27GCaxIQUQDsupPdxB1AhJqrjzvCOZXPfqsT/6Fp0/KwBrqOtK1wbaC/7/FvhC2xh+nChWnGTgge/euiUzoaeq+ucQQHvSU7KltC+AqUL27rST5NUT3CixWuUL25lkHI/OAwkfliboMskHfs14F64qtsNyQ== gilvani.alves@ifmt.edu.br
+storage:
+  files:
+    - path: /etc/NetworkManager/system-connections/bond0.nmconnection
+      mode: 0600
+      contents:
+        inline: |
+          [connection]
+          id=bond0
+          type=bond
+          interface-name=bond0
+          [bond]
+          miimon=100
+          mode=active-backup
+          [ipv4]
+          address1=10.0.2.11/29,10.0.2.1
+          dns=8.8.8.8;
+          may-fail=false
+          method=manual
+    - path: /etc/NetworkManager/system-connections/bond0-slave-eno1.nmconnection
+      mode: 0600
+      contents:
+        inline: |
+          [connection]
+          id=bond0-slave-eno1
+          type=ethernet
+          interface-name=eno1
+          master=bond0
+          slave-type=bond
+    - path: /etc/NetworkManager/system-connections/bond0-slave-eno2.nmconnection
+      mode: 0600
+      contents:
+        inline: |
+          [connection]
+          id=bond0-slave-eno2
+          type=ethernet
+          interface-name=eno2
+          master=bond0
+          slave-type=bond
+    - path: /etc/NetworkManager/system-connections/bond0-slave-eno3.nmconnection
+      mode: 0600
+      contents:
+        inline: |
+          [connection]
+          id=bond0-slave-eno3
+          type=ethernet
+          interface-name=eno3
+          master=bond0
+          slave-type=bond
+    - path: /etc/NetworkManager/system-connections/eno4-static.nmconnection
+      mode: 0600
+      contents:
+        inline: |
+          [connection]
+          id=eno4
+          type=ethernet
+          interface-name=eno4
+          [ipv4]
+          address1=10.0.1.10/24
+          may-fail=true
+          method=manual
+    # YUM repository for kubeadm, kubelet and kubectl
+    - path: /etc/yum.repos.d/kubernetes.repo
+      mode: 0644
+      overwrite: true
+      contents:
+        inline: |
+          [kubernetes]
+          name=Kubernetes
+          baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+          enabled=1
+          gpgcheck=1
+          repo_gpgcheck=1
+          gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
+            https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+    # configuring automatic loading of br_netfilter on startup
+    - path: /etc/modules-load.d/br_netfilter.conf
+      mode: 0644
+      overwrite: true
+      contents:
+        inline: br_netfilter
+    # setting kernel parameters required by kubelet
+    - path: /etc/sysctl.d/kubernetes.conf
+      mode: 0644
+      overwrite: true
+      contents:
+        inline: |
+          net.bridge.bridge-nf-call-iptables=1
+          net.ipv4.ip_forward=1

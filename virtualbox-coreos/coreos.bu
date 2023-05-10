@@ -1,0 +1,36 @@
+variant: fcos
+version: 1.5.0
+passwd:
+  users:
+    - name: core
+      ssh_authorized_keys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDCFZwMLNX9mr+qm7zkAJPppAjEAQ0kIiwzF/vJFjh8bwkFaqyTvFwaqJPnKVwE+4ldIkQfYgc9xZ2sXBRrAt84auyw+NsgP6ik6Cihjsrblf6ZD3GRTrv2rmunimavfOrZD/lAQ8Bbvj8ZAvOG6tWy0Fls7FnvErWiMPhxG58C5YmiH3ujkxcFolBC3oIMjktSIodZzsTTUf0xae13ilqzxyr7aG100Xy/AO6bhS7ndkQBE18huhTJbmls2DsjusdgJLZQoYjzEF8ZBAGYutBR5KznunEN3EKtGg5lB+jbx6bOt76ljMD6XahpKpJPmx3Zkx1Mipq2W2/peNtcoHuzCLKIYjavTWg5is+r/PyBGoysaZgZ4suiwJ8LIOenVmn5HSVxRuMum/PzC1F1tTRJdRtQ9WNVfaL5XGdFggQrim+2wf/rK+Xzz/8Ul5eW54pTX1myPi4CpxoEIDinI/gv0pqMhUhGD9nWuIGqITMvk7NXIwFaacTjHDCS7cy6MrE= fabio@DevDesktop
+storage:
+  files:
+    - path: /etc/NetworkManager/system-connections/enp0s3.nmconnection
+      mode: 0600
+      contents:
+        inline: |
+          [connection]
+          id=enp0s3
+          type=ethernet
+          interface-name=enp0s3
+          [ipv4]
+          address1=192.168.56.3/24,192.168.56.1
+          dhcp-hostname=coreos-pxe
+          dns=1.1.1.1;
+          dns-search=
+          may-fail=false
+          method=manual
+    - path: /etc/NetworkManager/system-connections/enp0s8.nmconnection
+      mode: 0600
+      contents:
+        inline: |
+          [connection]
+          id=enp0s8
+          type=ethernet
+          interface-name=enp0s8
+          [ipv4]
+          address1=192.168.57.1/24
+          may-fail=false
+          method=manual

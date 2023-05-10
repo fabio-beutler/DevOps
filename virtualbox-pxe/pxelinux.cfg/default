@@ -1,0 +1,7 @@
+DEFAULT pxeboot
+TIMEOUT 20
+PROMPT 0
+LABEL pxeboot
+    KERNEL fedora-coreos-38.20230414.3.0-live-kernel-x86_64
+    APPEND initrd=fedora-coreos-38.20230414.3.0-live-initramfs.x86_64.img,fedora-coreos-38.20230414.3.0-live-rootfs.x86_64.img coreos.inst.install_dev=/dev/sda coreos.inst.ignition_url=http://192.168.56.2:9080/coreos.ign
+IPAPPEND 2
