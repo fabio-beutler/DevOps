@@ -20,7 +20,7 @@ storage:
           miimon=100
           mode=active-backup
           [ipv4]
-          address1=10.0.2.10/29,10.0.2.1
+          address1=10.0.2.10/24,10.0.2.1
           dns=8.8.8.8;
           may-fail=false
           method=manual

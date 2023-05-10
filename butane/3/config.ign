@@ -19,7 +19,7 @@
         "path": "/etc/NetworkManager/system-connections/bond0.nmconnection",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/zSJQY6DMAxF9z7LkEnQLKaqfBLEwsRGtYodRAISt6+KWv3Ff09vyMVdctPiIyjjVJwjtHOVC0G9yTZTls7J5JOH941gqlYcU4xghQUpNz2kmyg/9xUGXY+/EYh5k1oTphhi6EPqf/vbz1eAveJ/uHYHo7ObSRecaakCJu1RGI18pwVeAQAA///LP4hFqgAAAA=="
+          "source": "data:;base64,H4sIAAAAAAAC/zSJwaqEMAxF9/mWZ18rLh488iXiIjaRCWNSsVXw74eRGe7insMZc3GX3LT4BMo4F+cI7drkRlBvsi+UpXMy+eTxfROYqhXHFCNYYUHKTU/pZsrPY4NRt3OYgJh3qTVhiiGGPqT+tx9+vgLsFf/CvX8wurqFdMWF1ipg0h6F0cgPWuEVAAD//0XGZFuqAAAA"
         },
         "mode": 384
       },
