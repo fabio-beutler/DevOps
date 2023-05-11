@@ -51,7 +51,7 @@
         "path": "/etc/NetworkManager/system-connections/eno4-static.nmconnection",
         "contents": {
           "compression": "",
-          "source": "data:,%5Bconnection%5D%0Aid%3Deno4%0Atype%3Dethernet%0Ainterface-name%3Deno4%0A%5Bipv4%5D%0Aaddress1%3D10.0.1.11%2F24%2C10.0.1.1%0Amay-fail%3Dtrue%0Amethod%3Dmanual%0A"
+          "source": "data:,%5Bconnection%5D%0Aid%3Deno4%0Atype%3Dethernet%0Ainterface-name%3Deno4%0A%5Bipv4%5D%0Aaddress1%3D10.0.1.11%2F24%0Amay-fail%3Dtrue%0Amethod%3Dmanual%0A"
         },
         "mode": 384
       },
