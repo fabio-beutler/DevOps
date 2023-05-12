@@ -19,7 +19,7 @@
         "path": "/etc/NetworkManager/system-connections/bond0.nmconnection",
         "contents": {
           "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/zSJwaqEMAxF9/mWZ18rLh488iXiIjaRCWNSsVXw74eRGe7insMZc3GX3LT4BMo4F+cI7drkRlBvsi+UpXMy+eTxfROYqhXHFCNYYUHKTU/pZsrPY4NRt3OYgJh3qTVhiiGGPqT42w8/XwH2in/h3j8YXd1CuuJCaxUwaY/CaOQHrfAKAAD//+vhTmCqAAAA"
+          "source": "data:;base64,H4sIAAAAAAAC/zSJ0QqDMAxF3/Mts2vFh8nol4gPsYkszKRiq+Dfj8nGfbjncIaUzThVyTaCUJyykYd6rnwhiFXeZkzcGCr/8vC9EVREs8XgPWgmjpiqHNxMmN77CoOsRzcCEm1cSojBO+9aF/r+3na3vwFZiQ937QmKZzOjLHHGpTAo11emqGg7LvAJAAD//yZjKb6rAAAA"
         },
         "mode": 384
       },
@@ -51,7 +51,7 @@
         "path": "/etc/NetworkManager/system-connections/eno4-static.nmconnection",
         "contents": {
           "compression": "",
-          "source": "data:,%5Bconnection%5D%0Aid%3Deno4%0Atype%3Dethernet%0Ainterface-name%3Deno4%0A%5Bipv4%5D%0Aaddress1%3D10.0.1.10%2F24%0Amay-fail%3Dtrue%0Amethod%3Dmanual%0A"
+          "source": "data:,%5Bconnection%5D%0Aid%3Deno4%0Atype%3Dethernet%0Ainterface-name%3Deno4%0A%5Bipv4%5D%0Aaddress1%3D10.0.1.199%2F24%0Amay-fail%3Dtrue%0Amethod%3Dmanual%0A"
         },
         "mode": 384
       },
