@@ -16,18 +16,18 @@
   "storage": {
     "files": [
       {
-        "path": "/etc/NetworkManager/system-connections/bond0.nmconnection",
+        "path": "/etc/NetworkManager/system-connections/eno1-static.nmconnection",
         "contents": {
-          "compression": "gzip",
-          "source": "data:;base64,H4sIAAAAAAAC/zSJ0QqDMAxF3/Mts2vFh8nol4gPsYkszKRiq+Dfj8nGfbjncIaUzThVyTaCUJyykYd6rnwhiFXeZkzcGCr/8vC9EVREs8XgPWgmjpiqHNxMmN77CoOsRzcCEm1cSojBO+9aF/r+3na3vwFZiQ937QmKZzOjLHHGpTAo11emqGg7LvAJAAD//yZjKb6rAAAA"
+          "compression": "",
+          "source": "data:,%5Bconnection%5D%0Aid%3Deno1%0Atype%3Dethernet%0Ainterface-name%3Deno1%0A%5Bipv4%5D%0Aaddress1%3D10.0.1.199%2F24%0Amay-fail%3Dtrue%0Amethod%3Dmanual%0A"
         },
         "mode": 384
       },
       {
-        "path": "/etc/NetworkManager/system-connections/bond0-slave-eno1.nmconnection",
+        "path": "/etc/NetworkManager/system-connections/bond0.nmconnection",
         "contents": {
-          "compression": "",
-          "source": "data:,%5Bconnection%5D%0Aid%3Dbond0-slave-eno1%0Atype%3Dethernet%0Ainterface-name%3Deno1%0Amaster%3Dbond0%0Aslave-type%3Dbond%0A"
+          "compression": "gzip",
+          "source": "data:;base64,H4sIAAAAAAAC/zSJ0QqDMAxF3/Mts2vFh8nol4gPsYkszKRiq+Dfj8nGfbjncIaUzThVyTaCUJyykYd6rnwhiFXeZkzcGCr/8vC9EVREs8XgPWgmjpiqHNxMmN77CoOsRzcCEm1cSojBO+9aF/r+3na3vwFZiQ937QmKZzOjLHHGpTAo11emqGg7LvAJAAD//yZjKb6rAAAA"
         },
         "mode": 384
       },
@@ -48,10 +48,10 @@
         "mode": 384
       },
       {
-        "path": "/etc/NetworkManager/system-connections/eno4-static.nmconnection",
+        "path": "/etc/NetworkManager/system-connections/bond0-slave-eno4.nmconnection",
         "contents": {
           "compression": "",
-          "source": "data:,%5Bconnection%5D%0Aid%3Deno4%0Atype%3Dethernet%0Ainterface-name%3Deno4%0A%5Bipv4%5D%0Aaddress1%3D10.0.1.199%2F24%0Amay-fail%3Dtrue%0Amethod%3Dmanual%0A"
+          "source": "data:,%5Bconnection%5D%0Aid%3Dbond0-slave-eno4%0Atype%3Dethernet%0Ainterface-name%3Deno4%0Amaster%3Dbond0%0Aslave-type%3Dbond%0A"
         },
         "mode": 384
       },

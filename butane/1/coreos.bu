@@ -8,6 +8,18 @@ passwd:
         - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCm1ujNqvFxUPbaW5VK2X3Ob3pADRj3CNaWkFEVHjqTCsOfXF3KfeIO/Hqj97A3uOSlQ6fKiSSSiFcnLYk/xXBTallw6Aecl+aWqPGew/jLptZIOZHFGUN+ZUa8zyf8upMTM2OPNnorzr65IOxZ3FT39yaxvjn4t28YB9MvNx2fPvwGR6Y2dSLkYj/JM7GixQRpTeZpmNGPmFPGlhDWtgKiOpIgkaaaPq/MfDrx2K6JjrJF6T8HzAfm07lItIg47/eNHekrtqh9bVjWJKHTE0iPr9Yi8nCm6xsJLerVbMAZb3RSOKNnpeHYKLgTgF6LOOzyfNuAUDuj5AsSuahiUq3ZpYCJ0I4DAXFoX0My6X9s4jPbQ4MrnTDq++Qqc2PqrrFNSSMXVauYjPW6XlosxMaFEspWJmWyO0d2UWkPqNGft9zP4/L0dwG5oOuCN8Eh7hOrrsxhg2jEN8G1nSDgi/6/SIhfj3eLirnF2FgACqvxbgj+uvs4/j8+0YEDTcfd3b6QgBJBYIUQPxQYGMy27GCaxIQUQDsupPdxB1AhJqrjzvCOZXPfqsT/6Fp0/KwBrqOtK1wbaC/7/FvhC2xh+nChWnGTgge/euiUzoaeq+ucQQHvSU7KltC+AqUL27rST5NUT3CixWuUL25lkHI/OAwkfliboMskHfs14F64qtsNyQ== gilvani.alves@ifmt.edu.br
 storage:
   files:
+    - path: /etc/NetworkManager/system-connections/eno1-static.nmconnection
+      mode: 0600
+      contents:
+        inline: |
+          [connection]
+          id=eno1
+          type=ethernet
+          interface-name=eno1
+          [ipv4]
+          address1=10.0.1.199/24
+          may-fail=true
+          method=manual
     - path: /etc/NetworkManager/system-connections/bond0.nmconnection
       mode: 0600
       contents:
@@ -24,16 +36,6 @@ storage:
           dns=8.8.8.8;
           may-fail=false
           method=manual
-    - path: /etc/NetworkManager/system-connections/bond0-slave-eno1.nmconnection
-      mode: 0600
-      contents:
-        inline: |
-          [connection]
-          id=bond0-slave-eno1
-          type=ethernet
-          interface-name=eno1
-          master=bond0
-          slave-type=bond
     - path: /etc/NetworkManager/system-connections/bond0-slave-eno2.nmconnection
       mode: 0600
       contents:
@@ -54,18 +56,16 @@ storage:
           interface-name=eno3
           master=bond0
           slave-type=bond
-    - path: /etc/NetworkManager/system-connections/eno4-static.nmconnection
+    - path: /etc/NetworkManager/system-connections/bond0-slave-eno4.nmconnection
       mode: 0600
       contents:
         inline: |
           [connection]
-          id=eno4
+          id=bond0-slave-eno4
           type=ethernet
           interface-name=eno4
-          [ipv4]
-          address1=10.0.1.199/24
-          may-fail=true
-          method=manual
+          master=bond0
+          slave-type=bond
     # YUM repository for kubeadm, kubelet and kubectl
     - path: /etc/yum.repos.d/kubernetes.repo
       mode: 0644
